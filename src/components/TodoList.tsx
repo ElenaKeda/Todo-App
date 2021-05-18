@@ -11,7 +11,7 @@ const SomeTodo = ({todo, onRemove, onChecked}:{todo:ITodo, onRemove:any, onCheck
         <div className="wrapper">
             <div className="todo-wrapper">
                 <Checkbox 
-                    onChange={() => onChecked(todo)}>
+                    onChange={() => onChecked(todo.id)}>
                     <span
                         className={todo.completed ? 'completed' : undefined}>
                          {/* style={{ textDecoration: todo.completed ? 'line-through' : 'none'}} */}

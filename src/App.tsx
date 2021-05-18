@@ -37,9 +37,22 @@ function App() {
   //   }))
   // }
 
-  const checkedTodo = (selectedTodo:any) => {
+  // const checkedTodo = (selectedTodo:any) => {
+  //   const newTodos = todos.map(todo => {
+  //     if (todo == selectedTodo) {
+  //       return{
+  //         ...todo,
+  //         completed: !todo.completed
+  //       }
+  //     }
+  //     return todo
+  //   })
+  //   setTodos(newTodos)
+  // }
+
+  const checkedTodo = (id:number) => {
     const newTodos = todos.map(todo => {
-      if (todo == selectedTodo) {
+      if (todo.id == id) {
         return{
           ...todo,
           completed: !todo.completed
