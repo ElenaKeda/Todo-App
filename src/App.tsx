@@ -17,24 +17,37 @@ function App() {
       completed: false
     }
     console.log(newTodo);
-    setTodos([...todos, newTodo])
+    setTodos(prev => [...prev, newTodo])
   }
 
   const removeTodo = (id:number) => {
     setTodos(prev => prev.filter(todo => todo.id !== id))
   }
 
-  const checkedTodo = (id:number) => {
-    setTodos(prev => prev.map(todo => {
+  // const checkedTodo = (id:number) => {
+  //   setTodos(prev => prev.map(todo => {
       
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
-        console.log('ckecked', todo)
-        // className={todo.completed ? 'completed' : ''}
+  //     if (todo.id === id) {
+  //       todo.completed = !todo.completed;
+  //       console.log('ckecked', todo)
+  //       // className={todo.completed ? 'completed' : ''}
+  //     }
+      
+  //     return {...todo}
+  //   }))
+  // }
+
+  const checkedTodo = (selectedTodo:any) => {
+    const newTodos = todos.map(todo => {
+      if (todo == selectedTodo) {
+        return{
+          ...todo,
+          completed: !todo.completed
+        }
       }
-      
-      return {...todo}
-    }))
+      return todo
+    })
+    setTodos(newTodos)
   }
   
 
